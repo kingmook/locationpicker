@@ -1,5 +1,4 @@
 
-
 (function( $ ){
 
   $.fn.locationPicker = function( options ) {  
@@ -23,7 +22,7 @@
     var $helpText = $("<div class='lp-help'>Loading</div>");
     $lp.append($helpText);
     
-    var $searchInput = $("<input class='lp-search' type='text' />");
+    var $searchInput = $("<input class='lp-search' type='text' value='Enter Location to Search for'/>");
     $lp.append($searchInput);
     
     var $submit = $("<input class='lp-submit' type='submit' value='Search' />");
