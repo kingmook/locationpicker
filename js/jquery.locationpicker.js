@@ -1,4 +1,5 @@
 
+
 (function( $ ){
 
   $.fn.locationPicker = function( options ) {  
@@ -8,24 +9,27 @@
 	}
 	
     var settings = $.extend( {
-		'lat': 50.461921,
-        'lng': -3.525315 
+		'lat': 43.118556,
+        'lng': -79.246312 
     }, options);
     
     var $current;
     
     var $lp = $("<div class='lp-container'/>");
     
+	var $introText = $("<div class='lp-intro'/>Drag the pin to or double click on your location</div>");
+    $lp.append($introText);
+	
     var $map = $("<div class='lp-map'/>");
     $lp.append($map);
     
     var $helpText = $("<div class='lp-help'>Loading</div>");
     $lp.append($helpText);
     
-    var $searchInput = $("<input class='lp-search' type='text' value='Enter Location to Search for'/>");
+    var $searchInput = $("<input style=\"visibility:hidden; display:none;\" class='lp-search' id='lp-search' type='text' value='Enter Location to Search for'/>");
     $lp.append($searchInput);
     
-    var $submit = $("<input class='lp-submit' type='submit' value='Search' />");
+    var $submit = $("<input style=\"visibility:hidden; display:none;\" class='lp-submit' type='submit' value='Search' />");
     $lp.append($submit);
     
     $('body').append($lp);
@@ -59,9 +63,7 @@
     var RoundDecimal = function(num, decimals){
         var mag = Math.pow(10, decimals);
         return Math.round(num * mag)/mag;
-    };
-    
-    
+    };   
     
     var getLocation = function(latlng){
 		
